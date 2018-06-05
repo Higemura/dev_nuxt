@@ -1,8 +1,22 @@
 <template>
   <div>
+    <AppNavigation/>
     <nuxt/>
+    <FooterItem/>
   </div>
 </template>
+
+<script>
+import AppNavigation from '~/components/AppNavigation.vue'
+import FooterItem from '~/components/FooterItem.vue'
+export default {
+  components: {
+    AppNavigation,
+    FooterItem
+  }
+}
+</script>
+
 
 <style>
 html {
