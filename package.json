@@ -14,12 +14,16 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.1",
+    "@nuxtjs/markdownit": "^1.2.1",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "markdown-it": "^8.4.2",
+    "markdown-loader": "^4.0.0",
     "nuxt": "^1.0.0",
     "universal-cookie": "^3.0.4"
   },
   "devDependencies": {
+    "@nuxtjs/markdownit-loader": "^1.1.1",
     "babel-eslint": "^8.2.1",
     "eslint": "^4.15.0",
     "eslint-friendly-formatter": "^3.0.0",

@@ -21,7 +21,8 @@ module.exports = {
   */
   loading: { color: '#3B8070' },
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/markdownit'
   ],
   plugins: [
     '~/plugins/axios',
@@ -32,6 +33,15 @@ module.exports = {
       'redirector',
       'auth'
     ]
+  },
+  markdownit: {
+    preset: 'default',
+    linkify: true,
+    breaks: true
+    // use: [
+    //   ['markdown-it-container', containerName],
+    //   'markdown-it-attrs'
+    // ]
   },
   /*
   ** Build configuration
