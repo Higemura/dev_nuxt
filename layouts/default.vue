@@ -13,6 +13,11 @@ export default {
   components: {
     AppNavigation,
     FooterItem
+  },
+  head () {
+    return {
+      titleTemplate: '%s | Nuxt Web Application'
+    }
   }
 }
 </script>

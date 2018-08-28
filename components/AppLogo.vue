@@ -4,8 +4,6 @@
     <div class="Triangle Triangle--one"/>
     <div class="Triangle Triangle--three"/>
     <div class="Triangle Triangle--four"/> -->
-
-
     あああ
   </div>
 </template>

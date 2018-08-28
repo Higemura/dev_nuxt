@@ -5,6 +5,10 @@
 </template>
 <script>
 export default {
-
+  head () {
+    return {
+      titleTemplate: 'ユーザーページ'
+    }
+  }
 }
 </script>
