@@ -1,48 +1,83 @@
-module.exports = {
+// import from '@nuxtjs/type'
+
+export default {
+  srcDir: './src',
   /*
-  ** Headers of the page
-  */
+   ** Deployment target
+   ** Doc: https://nuxtjs.org/guides/features/deployment-targets
+   */
+  target: "static",
+  /*
+   ** Headers of the page
+   ** Doc: https://vue-meta.nuxtjs.org/api/#metainfo-properties
+   */
   head: {
-    title: 'nuxt-project',
+    title: "Nuxt.js Infinite masonry layout with Nuxt",
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+  },
+  components: [
+    "~/components/ui/card",
+    "~/components/ui/typography",
+    "~/components/svg",
+  ],
+  /*
+   ** Storybook Config
+   */
+  storybook: {
+    port: 4000,
+    stories: ["~/components/**/*.stories.mdx"],
+    webpackFinal(config) {
+      return config;
+    },
   },
   /*
-  ** Customize the progress bar color
-  */
-  loading: { color: '#3B8070' },
-  modules: [
-    '@nuxtjs/axios'
+   ** Nuxt.js modules
+   ** Doc: https://nuxtjs.org/guides/configuration-glossary/configuration-modules
+   */
+  modules: ["@nuxt/content"],
+  content: {
+    // Disable for security reason on CodeSandBox
+    liveEdit: false,
+  },
+  /*
+   ** Build time modules
+   */
+  buildModules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/composition-api",
+    "@nuxtjs/google-fonts",
   ],
+  tailwindcss: {
+    configPath: "~/config/tailwind.config.js",
+  },
+  googleFonts: {
+    families: {
+      Roboto: true,
+      "Roboto+Condensed": true,
+    },
+  },
+  /*
+   ** Plugins to load before mounting the App
+   ** Doc: https://nuxtjs.org/guide/plugins
+   */
   plugins: [
-    '~/plugins/axios',
-    '~/plugins/logger'
+    { src: "~/plugins/vue-awesome" },
+    { src: "~/plugins/vue-masonry-css", mode: "client" },
+    { src: "~/plugins/vue-infinite-loading", mode: "client" },
+    { src: "~/plugins/vue-aos", mode: "client" },
   ],
-  router: {
-    middleware: ['redirector']
-  },
   /*
-  ** Build configuration
-  */
+   ** Generate routes
+   ** Add time between pages being generated to allow for any async functions to resolve
+   */
+  generate: {
+    // choose to suit your project
+    interval: 2000,
+  },
   build: {
-    /*
-    ** Run ESLint on save
-    */
-    extend (config, { isDev, isClient }) {
-      if (isDev && isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
-  }
-}
+    transpile: [/vue-awesome/],
+  },
+};
