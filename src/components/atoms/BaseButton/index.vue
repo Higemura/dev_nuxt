@@ -5,13 +5,14 @@
 </template>
 
 <script lang="ts">
+// #importsを読み込むとstorybook上で他のコンポーネントを表示していてもエラーが出るので、コメントアウトしています。
 // import { defineComponent, ref } from "#imports"
 
 export default defineComponent({
   props: {
     text: {
       type: String,
-      default: 'DefaultText'
+      default: 'Default1'
     }
   },
   setup(props) {

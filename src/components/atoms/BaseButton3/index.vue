@@ -11,7 +11,7 @@ export default defineComponent({
   props: {
     text: {
       type: String,
-      default: 'DefaultText'
+      default: 'Default3'
     }
   },
   setup(props) {

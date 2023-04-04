@@ -8,11 +8,11 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-const props = withDefaults(defineProps(),{
-  text: {
-    type: String,
-    default: 'DefaultText'
-  }
+interface BaseButton2Props {
+  text: string
+}
+const props = withDefaults(defineProps<BaseButton2Props>(), {
+  text: 'Default2'
 })
 
 const text = ref(props.text)
